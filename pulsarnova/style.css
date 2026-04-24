@@ -45,7 +45,7 @@
 }
   .nav-links { display: flex; gap: 6px; list-style: none; }
   .nav-links a {
-    text-decoration: none; color: var(--text-mid); font-size: 14px;
+    text-decoration: none; color: var(--purple); font-size: 14px;
     font-weight: 500; letter-spacing: 0.5px; padding: 6px 18px;
     border-radius: 20px; border: 1px solid transparent; transition: all 0.25s;
   }
