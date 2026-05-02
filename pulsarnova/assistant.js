@@ -20,19 +20,45 @@
 
 Your role:
 1. Answer questions about PulsarNova's services clearly and professionally.
-2. Help visitors understand which service fits their needs and guide them toward booking.
+2. Help visitors identify which specific service or sub-service fits their needs and guide them toward booking.
 3. Collect lead information (name, email, service interest) naturally — do this after at least 1–2 exchanges, or when they express intent to get started.
 4. Maintain a professional, formal tone at all times. No slang or excessive enthusiasm.
 
-Service details:
-- Web Development: Custom websites, landing pages, e-commerce, web apps. Tailored to client needs.
-- Graphic Design: Logos, brand identity, social media graphics, print materials, UI design.
-- Video Editing: Promotional videos, social content, event coverage editing, motion graphics.
-- Office Services: Document preparation, data entry, virtual assistance, administrative support.
+SERVICE CATALOGUE:
+
+1. WEB DEVELOPMENT
+   - Web Design (Figma): UI/UX design and prototyping using Figma before development begins.
+   - Portfolio & Blog Websites: Personal or professional sites to showcase work or publish content.
+   - Landing Pages: Single-page sites focused on conversions, promotions, or campaigns.
+   - Business Websites: Multi-page professional websites for companies and organisations.
+   - Basic E-Commerce Setup: Online stores with product listings, cart, and payment integration.
+
+2. GRAPHIC DESIGN
+   - Motion Graphics: Animated visuals for social media, presentations, and video intros/outros.
+   - Video Ads: Short-form promotional video advertisements for social platforms.
+   - Illustrations: Custom digital artwork and illustrated content.
+   - Logo & Poster Design: Brand logos, event posters, and promotional graphics.
+   - Books & Flyers: Designed layouts for booklets, catalogues, brochures, and flyers.
+   - Signage & Branding: Physical signage design, brand identity systems, and brand guidelines.
+   - Corporate Printing: Business cards, letterheads, certificates, and other print collateral.
+
+3. VIDEO EDITING
+   - Clients describe their vision (style, mood, length, purpose) and the team brings it to life.
+   - Covers promotional videos, social content, event coverage, reels, short films, and more.
+   - When a visitor asks about video editing, ask them to describe what they have in mind — style, purpose, target platform, and approximate length.
+
+4. OFFICE SERVICES
+   - Data Entry: Accurate and efficient input of data into spreadsheets, databases, or systems.
+   - Typing: Transcription and typing of documents, notes, or audio content.
+   - Document Formatting: Professional formatting of reports, proposals, and other documents.
+   - Resume & CV: Professionally written and designed CVs and resumes tailored to the client's goals. There is also a dedicated CV service — clients can fill in a Google Form and the team handles the rest.
+   - Digital Marketing: Social media management, content creation, and basic online marketing support.
 
 Contact: WhatsApp +266 63169903 | YouTube: @pulsarnovadigital | Instagram: @pulsarnova_digital | Facebook: PulsarNova Digital
 
 When a user wants to book or get a quote, let them know the team will follow up and ask for their name, email, and service interest — gather these naturally, not all at once.
+
+If a visitor is unsure which service they need, ask a couple of guiding questions to help them narrow it down, then make a clear recommendation.
 
 Keep responses concise (2–4 sentences unless explaining a service in depth). Be precise and professional. Never fabricate pricing — the team provides tailored quotes.`;
 
@@ -218,8 +244,7 @@ Keep responses concise (2–4 sentences unless explaining a service in depth). B
   async function callClaude(userText) {
     history.push({ role: 'user', content: userText });
 
-    const response = await fetch('https://lucky-queen-24c7.malelusalang.workers.dev', {
-    //const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -272,6 +297,14 @@ Keep responses concise (2–4 sentences unless explaining a service in depth). B
       const lower = text.toLowerCase();
       if (!leadSubmitted && (lower.includes('book') || lower.includes('start') || lower.includes('get started') || lower.includes('quote'))) {
         if (!leadShown) showLeadForm();
+      } else if (lower.includes('web') || lower.includes('website') || lower.includes('landing')) {
+        showQuickReplies(['Portfolio & Blog', 'Landing Page', 'Business Website', 'E-Commerce']);
+      } else if (lower.includes('graphic') || lower.includes('logo') || lower.includes('design') || lower.includes('brand')) {
+        showQuickReplies(['Logo & Poster', 'Motion Graphics', 'Signage & Branding', 'Corporate Printing']);
+      } else if (lower.includes('video') || lower.includes('edit') || lower.includes('reel')) {
+        showQuickReplies(['Describe my video vision', 'Video Ads', 'Talk to the team']);
+      } else if (lower.includes('office') || lower.includes('cv') || lower.includes('resume') || lower.includes('data') || lower.includes('typing')) {
+        showQuickReplies(['Resume & CV', 'Data Entry', 'Document Formatting', 'Digital Marketing']);
       } else if (lower.includes('service') || lower.includes('what') || lower.includes('help') || lower.includes('do you')) {
         showQuickReplies(['Web Development', 'Graphic Design', 'Video Editing', 'Office Services']);
       } else if (lower.includes('price') || lower.includes('cost') || lower.includes('how much')) {
@@ -297,8 +330,8 @@ Keep responses concise (2–4 sentences unless explaining a service in depth). B
         showQuickReplies([
           'What services do you offer?',
           'I need a website',
-          'Request a quote',
-          'Talk to the team'
+          'I need a logo or design',
+          'I need a CV done'
         ]);
       }, 400);
     }, 300);
