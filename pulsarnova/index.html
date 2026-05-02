@@ -192,41 +192,117 @@
   <h2 class="section-title">SERVICES</h2>
   <div class="services-grid">
 
-    <div class="service-card">
+    <!-- ── Web Development ── -->
+    <div class="service-card" onclick="toggleServiceMenu(this)">
       <div class="service-img-wrap">
         <img src="./assets/Screenshot_18-3-2026_132729_static.vecteezy.com.jpeg" alt="Web Development"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <div class="service-bg" style="display:none;background:linear-gradient(135deg,#1a0533,#3d0078,#6b21a8);">💻</div>
       </div>
-      <div class="service-label">Web Development</div>
+      <div class="service-label">
+        Web Development <span class="service-arrow">▾</span>
+      </div>
+      <div class="service-submenu">
+        <ul>
+          <li> Web Design (Figma)</li>
+          <li>Portfolio &amp; Blog Websites</li>
+          <li>Landing Pages</li>
+          <li>Business Websites</li>
+          <li> Basic E-Commerce Setup</li>
+        </ul>
+        <a href="https://wa.me/26663169903?text=Hi%2C%20I%27m%20interested%20in%20Web%20Development"
+           class="service-cta-btn" onclick="event.stopPropagation()">Get a Quote →</a>
+      </div>
     </div>
 
-    <div class="service-card">
+    <!-- ── Graphic Design ── -->
+    <div class="service-card" onclick="toggleServiceMenu(this)">
       <div class="service-img-wrap">
         <img src="./assets/Screenshot_18-3-2026_132921_www.pngall.com.jpeg" alt="Graphic Design"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <div class="service-bg" style="display:none;background:linear-gradient(135deg,#f0e6d3,#e8d4b0,#d4a853);">🎨</div>
       </div>
-      <div class="service-label">Graphic Design</div>
+      <div class="service-label">
+        Graphic Design <span class="service-arrow">▾</span>
+      </div>
+      <div class="service-submenu">
+        <ul>
+          <li> Motion Graphics</li>
+          <li> Video Ads</li>
+          <li> Illustrations</li>
+          <li> Logo &amp; Poster Design</li>
+          <li> Books &amp; Flyers</li>
+          <li> Signage &amp; Branding</li>
+          <li> Corporate Printing</li>
+        </ul>
+        <a href="https://wa.me/26663169903?text=Hi%2C%20I%27m%20interested%20in%20Graphic%20Design"
+           class="service-cta-btn" onclick="event.stopPropagation()">Get a Quote →</a>
+      </div>
     </div>
 
-    <div class="service-card">
+    <!-- ── Video Editing ── -->
+    <div class="service-card" onclick="toggleServiceMenu(this)">
       <div class="service-img-wrap">
         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80" alt="Video Editing"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <div class="service-bg" style="display:none;background:linear-gradient(135deg,#0d0d1a,#1a0533,#2d1a4a);">🎬</div>
       </div>
-      <div class="service-label">Video Editing</div>
+      <div class="service-label">
+        Video Editing <span class="service-arrow">▾</span>
+      </div>
+      <div class="service-submenu video-submenu">
+        <p class="video-prompt">Have a vision for your video? Tell us what you'd like — style, mood, length, purpose. We'll bring it to life.</p>
+        <textarea
+          class="video-brief"
+          placeholder="e.g. A 60-second promo for my restaurant, upbeat music, showing food and atmosphere…"
+          onclick="event.stopPropagation()"
+          rows="3"
+        ></textarea>
+        <a href="#" class="service-cta-btn"
+           onclick="event.stopPropagation(); sendVideoBrief(this)">Send Brief via WhatsApp →</a>
+      </div>
     </div>
 
-    <div class="service-card">
+    <!-- ── Office Services ── -->
+    <div class="service-card" onclick="toggleServiceMenu(this)">
       <div class="service-img-wrap">
         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office Services"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <div class="service-bg" style="display:none;background:linear-gradient(135deg,#bde8f4,#7cc4e0,#3a9dbf);">📋</div>
       </div>
-      <div class="service-label">Office Services</div>
+      <div class="service-label">
+        Office Services <span class="service-arrow">▾</span>
+      </div>
+      <div class="service-submenu">
+        <ul>
+          <li> Data Entry</li>
+          <li> Typing</li>
+          <li> Document Formatting</li>
+          <li> Resume &amp; CV</li>
+          <li> Digital Marketing</li>
+        </ul>
+        <a href="https://wa.me/26663169903?text=Hi%2C%20I%27m%20interested%20in%20Office%20Services"
+           class="service-cta-btn" onclick="event.stopPropagation()">Get a Quote →</a>
+      </div>
     </div>
+
+  </div>
+
+  <div class="cv-cta-box">
+    
+    <h2>LET US BUILD YOU A COMPETITIVE CV</h2>
+    
+    <p>
+      Stand out to employers with a professionally designed CV tailored to your goals.
+       Internships, jobs, or opportunities — we’ve got you covered.
+    </p>
+
+    <a 
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdWrPqQH-0zw-nF-albXnGUZAMKQX4aEqxe1AwGD3l7wz6IKw/viewform" 
+      target="_blank" 
+      class="btn-primary">
+      Start Your CV Now
+    </a>
 
   </div>
 </section>
